@@ -3,16 +3,15 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0 0 100px 0;
     background-color: #000000;
     background-image: url('./img/background.png'); /* Фон для мобильных устройств */
-    background-size:  100%;
+    background-size: 100%;
     background-position: center;
     background-repeat: repeat-y;
-    color: rgb(255, 255, 255);
-
+    color: #fff;
 }
 
 .logo {
@@ -20,34 +19,29 @@ body {
     margin: 0 auto;
 }
 
-.logo img{
+.logo img {
     width: 100%;
-}
-
-.price {
-    color: #FFD700;
-    font-size: 1.3em;
-}
-
-.volume {
-    font-size: 0.7em;
 }
 
 .fixed-menu {
     display: none;
 }
 
-@media (max-width: 768px) {
 
+
+
+
+
+@media (max-width: 768px) {
     .fixed-menu {
         width: 100%;
-        background-color: #000000;
+        background-color: #000;
         position: fixed;
         bottom: 0;
-        display: -webkit-flex;
         display: flex;
         justify-content: center;
-        min-height: 65px;
+        min-height: 55px;
+        font-size: 0.9em;
     }
 
     .fixed-menu::before {
@@ -57,19 +51,20 @@ body {
         height: 4px;
         background: linear-gradient(to right, rgba(163, 163, 163, 0), rgba(255, 255, 255, 0.3), rgba(163, 163, 163, 0));
         position: absolute;
-        top: -2px; /* Полоска сверху меню */
+        top: -2px;
         left: 0;
     }
 
     .fixed-menu ul {
         display: flex;
-        justify-content: space-around; /* Равномерно распределяем элементы списка */
+        justify-content: space-around;
         flex-direction: row;
-        min-height: 65px;
-        width: 100%;
-        padding: 20px;
+        min-height: 35px;
+        width: 90%;
+        padding: 15px 20px;
         margin: 0;
-        list-style-type: none;
+        list-style: none;
+
     }
 
     .fixed-menu ul li {
@@ -77,12 +72,11 @@ body {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 0 15px;
         text-align: center;
     }
 
     .fixed-menu ul li img {
-        max-width: 40px;
+        max-width: 32px;
         height: auto;
         margin-bottom: 5px;
     }
@@ -91,13 +85,6 @@ body {
         color: white;
         text-decoration: none;
     }
-
-
-    .menu-option img {
-        width: 80px;
-        height: 80px;
-    }
-
 }
 
 .container {
@@ -117,6 +104,49 @@ h1 {
     color: white;
 }
 
+h2 {
+    font-size: 1.6em;
+    position: relative;
+}
+
+h2, h3 {
+    font-weight: 500;
+}
+
+#hookah-menu::before,
+#alkohol-free::before,
+#coctails::before,
+#snacks::before {
+    content: "";
+    position: absolute; /* Абсолютное позиционирование */
+    width: 35px;
+    height: 35px;
+    background-size: cover;
+    vertical-align: middle;
+    margin-right: 10px; /* Отступ для красоты */
+    left: -40px;
+    bottom: 10px; /* Выравниваем по нижней части текста */
+    transform: translateY(0); /* Убираем вертикальное смещение */
+}
+
+
+#hookah-menu::before {
+    background-image: url('./img/icons/hookah.png');
+}
+
+#alkohol-free::before {
+    background-image: url('./img/icons/drinks.png');
+}
+
+#coctails::before {
+    background-image: url('./img/icons/coctail.png');
+}
+
+#snacks::before {
+    background-image: url('./img/icons/food.png');
+}
+
+
 .underline {
     position: relative;
     display: inline-block;
@@ -131,54 +161,41 @@ h1 {
     height: 2px;
     background: linear-gradient(to right, rgba(163, 163, 163, 0), rgba(255, 255, 255, 0.8), rgba(163, 163, 163, 0));
     position: absolute;
-    bottom: -10px;
+    bottom: -5px;
     left: 0;
 }
 
-.menu-item h4 {
-    font-size: 24px;
-    margin-bottom: 3px;
+
+
+
+.menu-section {
+    width: 100%;
+    margin: 20px 0 0;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 1.3em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Легкие линии */
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+
+}
+
+.item-name {
     color: white;
 }
 
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
+.item-price {
+    color: yellow;
 }
 
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    justify-items: center;
-}
-
-.menu-option img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.menu-option img:hover {
-    transform: scale(1.1);
-}
-
-.menu-option p {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #FFD700;
-    text-decoration: none;
-}
-
-.close-modal {
-    margin-top: 20px;
-    color: #bbb;
-    cursor: pointer;
-    font-size: 16px;
+h3 {
+    color: lightgray;
+    font-size: 1.5em;
+    margin: 25px 0;
 }
